@@ -1,3 +1,5 @@
+import { requestNotificationPermission } from "../logic/notificationsLogic.js";
+
 export function renderNotifications(root) {
   root.innerHTML = `
     <section class="panel">
@@ -8,14 +10,7 @@ export function renderNotifications(root) {
   `;
 
   const btn = root.querySelector("#enable-notifs");
-  btn.addEventListener("click", async () => {
-    if (!("Notification" in window)) {
-      alert("Notifications are not supported on this device.");
-      return;
-    }
-    const perm = await Notification.requestPermission();
-    if (perm === "granted") {
-      new Notification("Ellexis notifications enabled.");
-    }
+  btn.addEventListener("click", () => {
+    requestNotificationPermission();
   });
 }
