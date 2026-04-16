@@ -6,6 +6,7 @@ export function renderGpa(root) {
   root.innerHTML = `
     <section class="panel">
       <h2>GPA & Projections</h2>
+
       <div class="card">
         <p>Current GPA: ${proj.current}</p>
         <p>Target GPA: ${proj.target}</p>
