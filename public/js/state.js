@@ -58,7 +58,12 @@ export const state = {
       endTime: "18:00"
     }
   ],
-  notificationPrefs: {}
+  notificationPrefs: {},
+  portalConnection: {
+    status: "disconnected", // disconnected | connecting | connected | error
+    lastTest: null,
+    lastError: null
+  }
 };
 
 export function initState() {
