@@ -18,3 +18,10 @@ function scrapeSections() {
 
 setInterval(scrapeSections, 10000);
 scrapeSections();
+
+window.addEventListener("message", event => {
+  if (!event.data) return;
+  if (event.data.type === "ELLEXIS_EXTENSION_PING") {
+    window.postMessage({ type: "ELLEXIS_EXTENSION_PONG" }, "*");
+  }
+});
