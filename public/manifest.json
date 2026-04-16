@@ -1,0 +1,21 @@
+{
+  "name": "Ellexis",
+  "short_name": "Ellexis",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#050816",
+  "theme_color": "#0b6efd",
+  "description": "Your complete college brain — schedules, classes, financial aid, GPA, and real-time seat tracking.",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
