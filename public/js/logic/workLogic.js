@@ -1,11 +1,6 @@
 import { state } from "../state.js";
 import { hasConflict } from "./conflicts.js";
 
-/**
- * Analyze conflicts between work shifts and class schedule.
- * workShifts: [{ id, label, days, startTime, endTime }]
- * sections: state.sections (class meetings)
- */
 export function analyzeWorkConflicts() {
   const shifts = state.workShifts || [];
   const classes = state.sections || [];
