@@ -14,7 +14,7 @@ export function renderDashboard(root) {
       <div class="card-grid">
         <article class="card">
           <h3>Today</h3>
-          <p>Schedule overview and conflicts (coming soon).</p>
+          <p>Schedule overview and conflicts coming soon.</p>
         </article>
 
         <article class="card">
