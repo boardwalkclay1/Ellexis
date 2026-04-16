@@ -1,18 +1,26 @@
 import { state } from "../state.js";
+import { notify } from "./notificationsLogic.js";
 
-/**
- * Update sections from scraped data (portal or extension).
- * sections: [{ crn, courseCode, section, seatsAvailable, capacity, waitlist }]
- */
 export function updateAvailabilityFromScrape(sections) {
+  const old = state.sections;
   state.sections = sections;
+
+  sections.forEach(sec => {
+    const prev = old.find(o => o.crn === sec.crn);
+    if (!prev) return;
+    if (prev.seatsAvailable !== sec.seatsAvailable) {
+      const diff = sec.seatsAvailable - prev.seatsAvailable;
+      const dir = diff > 0 ? "increased" : "decreased";
+      notify(
+        "Seat change detected",
+        `${sec.courseCode} - ${sec.section}: seats ${dir} to ${sec.seatsAvailable}.`
+      );
+    }
+  });
+
   syncWatchlistWithSections();
-  // later: trigger notifications on changes
 }
 
-/**
- * Add/remove a CRN from the watchlist.
- */
 export function toggleWatchItem(crn) {
   const idx = state.watchlist.findIndex(w => w.crn === crn);
   if (idx >= 0) {
@@ -21,12 +29,8 @@ export function toggleWatchItem(crn) {
     const sec = state.sections.find(s => s.crn === crn);
     if (sec) state.watchlist.push({ ...sec, status: getStatus(sec) });
   }
-  // later: persist to IndexedDB/localStorage
 }
 
-/**
- * Sync watchlist entries with latest section data.
- */
 function syncWatchlistWithSections() {
   state.watchlist = state.watchlist.map(item => {
     const sec = state.sections.find(s => s.crn === item.crn);
@@ -35,9 +39,6 @@ function syncWatchlistWithSections() {
   });
 }
 
-/**
- * Determine status: open / full / unknown.
- */
 function getStatus(sec) {
   if (typeof sec.seatsAvailable !== "number") return "unknown";
   return sec.seatsAvailable > 0 ? "open" : "full";
