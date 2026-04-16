@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <title>Ellexis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="assets/favicon.ico" />
   <meta name="theme-color" content="#0b6efd" />
+
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
   <div class="page-bg" id="global-bg"></div>
 
@@ -26,6 +28,10 @@
     <small>Ellexis · Your complete college brain</small>
   </footer>
 
+  <!-- PWA App -->
   <script type="module" src="js/app.js"></script>
+
+  <!-- Scraper bridge (receives extension messages) -->
+  <script type="module" src="js/scraper.js"></script>
 </body>
 </html>
