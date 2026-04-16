@@ -7,6 +7,7 @@ import { renderFinance } from "./ui/finance.js";
 import { renderGpa } from "./ui/gpa.js";
 import { renderWorkSync } from "./ui/workSync.js";
 import { renderNotifications } from "./ui/notifications.js";
+import { renderConnectPortal } from "./ui/connect.js";
 
 const routes = {
   "": renderDashboard,
@@ -17,7 +18,8 @@ const routes = {
   "#finance": renderFinance,
   "#gpa": renderGpa,
   "#work": renderWorkSync,
-  "#notifications": renderNotifications
+  "#notifications": renderNotifications,
+  "#connect": renderConnectPortal
 };
 
 export function initRouter(onRouteChange) {
@@ -47,7 +49,8 @@ function setBackgroundForRoute(hash, bgEl) {
     "#finance": "assets/bg-finance.jpg",
     "#gpa": "assets/bg-gpa.jpg",
     "#work": "assets/bg-work.jpg",
-    "#notifications": "assets/bg-notifications.jpg"
+    "#notifications": "assets/bg-notifications.jpg",
+    "#connect": "assets/bg-index.jpg"
   };
   const src = map[hash] || map[""];
   bgEl.style.backgroundImage = `url('${src}')`;
