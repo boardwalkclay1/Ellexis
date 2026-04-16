@@ -2,30 +2,28 @@ import { state } from "../state.js";
 import { toggleWatchItem } from "../logic/availability.js";
 
 export function renderWatchlist(root) {
-  const list = state.watchlist || [];
+  const list = state.watchlist;
 
   root.innerHTML = `
     <section class="panel">
       <h2>Watchlist</h2>
-      <p>Track seats, waitlists, and changes in your starred classes.</p>
+      <p>Real-time seat tracking for your starred classes.</p>
+
       <div class="card-grid">
         ${
           list.length
-            ? list
-                .map(
-                  item => `
-          <article class="card ${item.status || "unknown"}">
-            <header style="display:flex;justify-content:space-between;align-items:center;">
-              <h3>${item.courseCode} - ${item.section}</h3>
-              <button class="star" data-crn="${item.crn}">★</button>
-            </header>
-            <p>Seats: ${item.seatsAvailable}/${item.capacity}</p>
-            <p>Waitlist: ${item.waitlist}</p>
-            <p>Status: ${item.status || "unknown"}</p>
-          </article>`
-                )
-                .join("")
-            : `<article class="card"><p>No classes in your watchlist yet. Add from your sections list once scraping is wired.</p></article>`
+            ? list.map(item => `
+              <article class="card ${item.status}">
+                <header style="display:flex;justify-content:space-between;align-items:center;">
+                  <h3>${item.courseCode} - ${item.section}</h3>
+                  <button class="star" data-crn="${item.crn}">★</button>
+                </header>
+                <p>Seats: ${item.seatsAvailable}/${item.capacity}</p>
+                <p>Waitlist: ${item.waitlist}</p>
+                <p>Status: ${item.status}</p>
+              </article>
+            `).join("")
+            : `<article class="card"><p>No watchlist items yet.</p></article>`
         }
       </div>
     </section>
@@ -34,7 +32,7 @@ export function renderWatchlist(root) {
   root.querySelectorAll(".star").forEach(btn => {
     btn.addEventListener("click", () => {
       toggleWatchItem(btn.dataset.crn);
-      renderWatchlist(root); // re-render after toggle
+      renderWatchlist(root);
     });
   });
 }
