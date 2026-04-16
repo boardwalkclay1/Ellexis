@@ -1,6 +1,3 @@
-/**
- * Request permission and set up basic notification capability.
- */
 export async function requestNotificationPermission() {
   if (!("Notification" in window)) {
     alert("Notifications are not supported on this device.");
@@ -12,10 +9,6 @@ export async function requestNotificationPermission() {
   }
 }
 
-/**
- * Fire a notification for seat changes, holds, etc.
- * (Call this from availability / finance / etc. when state changes.)
- */
 export function notify(title, body) {
   if (!("Notification" in window)) return;
   if (Notification.permission !== "granted") return;
