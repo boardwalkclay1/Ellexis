@@ -1,11 +1,4 @@
-import { state } from "../state.js";
-
-/**
- * Return a view-friendly degree plan.
- * For now, returns a simple mock structure.
- */
 export function getDegreePlanView() {
-  // later: derive from state.degreePlan + completed courses
   return {
     terms: [
       {
