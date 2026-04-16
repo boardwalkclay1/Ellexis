@@ -5,59 +5,47 @@
   <title>Ellexis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- FAVICON + ICONS -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+
+  <!-- PWA MANIFEST -->
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#0b6efd" />
 
+  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
+  <!-- GLOBAL BACKGROUND -->
   <div class="page-bg" id="global-bg"></div>
 
+  <!-- HEADER -->
   <header class="app-header">
     <div class="brand">
       <span class="logo-dot"></span>
       <h1>Ellexis</h1>
     </div>
+
     <nav id="top-nav"></nav>
+
+    <!-- LIVE PORTAL CONNECTION STATUS -->
+    <div class="portal-status" id="portal-status">Portal: Not connected</div>
   </header>
 
+  <!-- MAIN APP VIEW -->
   <main id="view-root"></main>
 
-  <!-- CONNECT PORTAL SECTION (always available) -->
-  <section class="connect-portal panel" id="connect-portal">
-    <h2>Connect Your College Portal</h2>
-    <p>To sync your real schedule, seat counts, GPA, and financial aid, install the Ellexis Browser Extension.</p>
-
-    <ol>
-      <li>Install the Ellexis Extension</li>
-      <li>Open your college portal in Chrome</li>
-      <li>Log in normally</li>
-      <li>Ellexis will sync automatically</li>
-    </ol>
-
-    <a href="#" id="install-extension" class="btn-primary">
-      Install Ellexis Extension
-    </a>
-  </section>
-
+  <!-- FOOTER -->
   <footer class="app-footer">
     <small>Ellexis · Your complete college brain</small>
   </footer>
 
-  <!-- PWA App -->
+  <!-- CORE APP -->
   <script type="module" src="js/app.js"></script>
 
-  <!-- Scraper bridge (receives extension messages) -->
+  <!-- SCRAPER BRIDGE (EXTENSION + IN-APP) -->
   <script type="module" src="js/scraper.js"></script>
-
-  <!-- Connect Portal Button Handler -->
-  <script>
-    document.addEventListener("click", e => {
-      if (e.target.id === "install-extension") {
-        alert("Install the Ellexis Extension from your browser’s extension store.");
-      }
-    });
-  </script>
 </body>
 </html>
