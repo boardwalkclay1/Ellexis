@@ -203,3 +203,66 @@ button.secondary {
     padding: 1.25rem;
   }
 }
+.portal-status {
+  margin-left: 1rem;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+.portal-status.connected {
+  color: #4ade80;
+}
+
+.portal-status.connecting {
+  color: #facc15;
+}
+
+.portal-status.error {
+  color: #f97373;
+}
+
+.connect-portal {
+  background: rgba(0,0,0,0.6);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 2rem auto;
+  color: white;
+}
+
+.connect-portal ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.connect-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #0b6efd;
+  color: white;
+}
+
+.btn-secondary {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+.connect-status .error {
+  color: #f97373;
+}
