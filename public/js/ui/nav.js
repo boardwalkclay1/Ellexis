@@ -23,7 +23,7 @@ export function renderTopNav() {
 export function setActiveNav(hash) {
   const nav = document.getElementById("top-nav");
   nav.querySelectorAll("a").forEach(a => {
-    a.classList.toggle("active", a.dataset.hash === hash);
-    if (!hash && a.dataset.hash === "") a.classList.add("active");
+    const h = a.dataset.hash || "";
+    a.classList.toggle("active", h === hash || (!hash && h === ""));
   });
 }
