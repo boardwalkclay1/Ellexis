@@ -7,7 +7,8 @@ const links = [
   { hash: "#finance", label: "Financial Aid" },
   { hash: "#gpa", label: "GPA" },
   { hash: "#work", label: "Work Sync" },
-  { hash: "#notifications", label: "Notifications" }
+  { hash: "#notifications", label: "Notifications" },
+  { hash: "#connect", label: "Connect Portal" }
 ];
 
 export function renderTopNav() {
