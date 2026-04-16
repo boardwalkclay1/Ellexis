@@ -24,6 +24,23 @@
 
   <main id="view-root"></main>
 
+  <!-- CONNECT PORTAL SECTION (always available) -->
+  <section class="connect-portal panel" id="connect-portal">
+    <h2>Connect Your College Portal</h2>
+    <p>To sync your real schedule, seat counts, GPA, and financial aid, install the Ellexis Browser Extension.</p>
+
+    <ol>
+      <li>Install the Ellexis Extension</li>
+      <li>Open your college portal in Chrome</li>
+      <li>Log in normally</li>
+      <li>Ellexis will sync automatically</li>
+    </ol>
+
+    <a href="#" id="install-extension" class="btn-primary">
+      Install Ellexis Extension
+    </a>
+  </section>
+
   <footer class="app-footer">
     <small>Ellexis · Your complete college brain</small>
   </footer>
@@ -33,5 +50,14 @@
 
   <!-- Scraper bridge (receives extension messages) -->
   <script type="module" src="js/scraper.js"></script>
+
+  <!-- Connect Portal Button Handler -->
+  <script>
+    document.addEventListener("click", e => {
+      if (e.target.id === "install-extension") {
+        alert("Install the Ellexis Extension from your browser’s extension store.");
+      }
+    });
+  </script>
 </body>
 </html>
